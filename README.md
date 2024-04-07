@@ -5,6 +5,7 @@
  Registrar la información referente a sus viajes. Cada viaje debe contener:
 
  - Codigo de viaje.
+ - Destino del viaje.
  - Cantidad maxima de pasajeros.
  - Pasajeros del viaje.
 
