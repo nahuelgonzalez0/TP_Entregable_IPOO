@@ -60,6 +60,43 @@ class Viaje {
 
     //metodos
 
+    public function cambiarPasajero($pasajeroSeleccionado,$nuevoNombre,$nuevoApellido,$NuevoTelefono){
+        $res = false;
+        $pasajeros = $this->getColeObjPasajero();
+        foreach ($pasajeros as $pasajero) {
+           if ($pasajero === $pasajeroSeleccionado) {
+            $pasajero->setNombre($nuevoNombre);
+            $pasajero->setApellido($nuevoApellido);
+            $pasajero->setTelefono($NuevoTelefono);
+            $res = true;
+           }
+        }
+        return $res;
+    }
+
+    public function agregarPasajero($pasajero){
+        $arregloPasajeros = $this->getColeObjPasajero();
+        $pasajeroRepetido = false;
+
+        //verificar si el pasajero ya existe en la coleccion
+        foreach ($arregloPasajeros as $pasajeroActual) {
+            if ($pasajeroActual === $pasajero) {
+                $pasajeroRepetido = true;
+                break;
+            }
+        }
+
+        $cantActualPasajero = count($this->getColeObjPasajero());
+        //verificar si se puede agregar el pasajero al viaje
+        $cambiarPasajero = false;
+        if ($cantActualPasajero < $this->getCantidadMaxPasajeros() && !$pasajeroRepetido) {
+           $arregloPasajeros[] = $pasajero;
+           $this->setColeObjPasajero($arregloPasajeros);
+           $cambiarPasajero = true;
+        }
+        return $cambiarPasajero;
+    }
+
     public function imprimirPasajeros(){
         $pasajero = "";
         $arregloPasajeros = $this->getColeObjPasajero();
@@ -73,5 +110,4 @@ class Viaje {
         return "Codigo de viaje: " .$this->getCodigo() . "\nDestino: " .$this->getDestino() . "\nCantidad maxima de pasajeros: " .$this->getCantidadMaxPasajeros() .
         "\nPasajeros del viaje: " .$this->imprimirPasajeros() . "\nResponsable del viaje: " .$this->objResponsableViaje();
     }
-    
 }

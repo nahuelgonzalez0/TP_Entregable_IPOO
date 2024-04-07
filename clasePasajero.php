@@ -5,7 +5,7 @@ class Pasajero {
     private $numDocumento;
     private $telefono;
     //metodo constructor
-    public function __contruct($nombre, $apellido, $numDocumento, $telefono){
+    public function __construct($nombre, $apellido, $numDocumento, $telefono){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->numDocumento = $numDocumento;
@@ -52,5 +52,4 @@ class Pasajero {
         return "Nombre: " . $this->getNombre() . "\nApellido: " . $this->getApellido() . 
         "\nNumero de documento: " . $this->getNumDocumento() . "\nTelefono: " . $this->getTelefono();
     }
-
 }
