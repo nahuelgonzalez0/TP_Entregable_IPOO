@@ -1,5 +1,5 @@
 <?php
-class objResponsableViaje {
+class Responsable {
     private $numEmpleado;
     private $numLicencia;
     private $nombre;
@@ -52,7 +52,7 @@ class objResponsableViaje {
     //metodos
 
     public function __toString(){
-        return "Numero de empleado: " .$this->getNumeroEmpleado() . "\nNumero de licencia: " .$this->getNumeroLicencia() .
-        "\nNombre: " .$this->getNombre() . "\nApellido: "  .$this->getApellido();
+        return "Numero de empleado: " .$this->getNumEmpleado() . "\nNumero de licencia: " .$this->getNumLicencia() .
+        "\nNombre: " .$this->getNombre() . "\nApellido: "  .$this->getApellido() . "\n";
     }
 }
