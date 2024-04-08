@@ -73,11 +73,11 @@ switch ($opcion) {
                 $empleado = datosPasajero();
                 $objResponsable->setNumEmpleado($empleado);
 
-                echo "Ingrese el nombre del pasajero: ";
+                echo "Ingrese el nombre del empleado: ";
                 $nombre = datosPasajero();
                 $objResponsable->setNombre($nombre);
 
-                echo "Ingrese el apellido del pasajero: ";
+                echo "Ingrese el apellido del empleado: ";
                 $apellido = datosPasajero();
                 $objResponsable->setApellido($apellido);
             } else {

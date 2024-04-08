@@ -62,9 +62,9 @@ class Viaje {
 
     public function cambiarResponsable($numLicencia,$nuevoNumEmpleado,$nuevoNombre,$NuevoApellido){
         $responsable = $this->getObjResponsableViaje();
-            $pasajero->setNumEmpleado($nuevoNumEmpleado);
-            $pasajero->setNombre($nuevoNombre);
-            $pasajero->setApellido($NuevoApellido);
+            $responsable->setNumEmpleado($nuevoNumEmpleado);
+            $responsable->setNombre($nuevoNombre);
+            $responsable->setApellido($NuevoApellido);
     }
 
     public function cambiarPasajero($dniPasajero,$nuevoNombre,$nuevoApellido,$NuevoTelefono){
