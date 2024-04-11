@@ -60,23 +60,34 @@ class Viaje {
 
     //metodos
 
-    public function cambiarResponsable($numLicencia,$nuevoNumEmpleado,$nuevoNombre,$NuevoApellido){
-        $responsable = $this->getObjResponsableViaje();
-            $responsable->setNumEmpleado($nuevoNumEmpleado);
-            $responsable->setNombre($nuevoNombre);
-            $responsable->setApellido($NuevoApellido);
+    public function cambiarPasajero($objPersona){
+        $dniPasajero = $objPersona->getNumDocumento();
+        $pasajeros = $this->getColeObjPasajero();
+        $contadorPasajeros = count($pasajeros);
+        $res = false;
+        $i = 0;
+        while (!$res && $i<$contadorPasajeros) {
+            if ($pasajeros[$i]->getNumDocumento() === $dniPasajero) {
+                $pasajeros[$i] = $objPersona;
+                $this->setColeObjPasajero($pasajeros);
+                $res = true;
+            } else {
+                $i++;
+            }
+        }
+        return $res;
     }
 
-    public function cambiarPasajero($dniPasajero,$nuevoNombre,$nuevoApellido,$NuevoTelefono){
-        $res = false;
-        $pasajeros = $this->getColeObjPasajero();
-        foreach ($pasajeros as $pasajero) {
-           if ($pasajero->getNumDocumento() === $dniPasajero) {
-            $pasajero->setNombre($nuevoNombre);
-            $pasajero->setApellido($nuevoApellido);
-            $pasajero->setTelefono($NuevoTelefono);
-            $res = true;
-           }
+    public function agregarCambiarResponsable ($objResponsable){
+       $this->setObjResponsableViaje($objResponsable);
+    }
+
+    public function verificarLugar (){
+        $maxPersonas = $this->getCantidadMaxPasajeros();
+        $cantPersonasActuales = count($this->getColeObjPasajero());
+        $res = true;
+        if ($cantPersonasActuales>= $maxPersonas) {
+            $res = false;
         }
         return $res;
     }
@@ -84,22 +95,24 @@ class Viaje {
     public function agregarPasajero($pasajero){
         $arregloPasajeros = $this->getColeObjPasajero();
         $pasajeroRepetido = false;
-
+        $contadorPasajeros = count($arregloPasajeros);
+        $i = 0;
         //verificar si el pasajero ya existe en la coleccion
-        foreach ($arregloPasajeros as $pasajeroActual) {
-            if ($pasajeroActual->getNumDocumento() === $pasajero->getNumDocumento()) {
+        while (!$pasajeroRepetido && $i<$contadorPasajeros) {
+            if ($arregloPasajeros[$i]->getNumDocumento() === $pasajero->getNumDocumento()) {
                 $pasajeroRepetido = true;
-                break;
+            } else {
+                $i++;
             }
         }
-        $cantActualPasajero = count($this->getColeObjPasajero());
+        $cambiarPasajero = true;
         //verificar si se puede agregar el pasajero al viaje
-        $cambiarPasajero = false;
-        if ($cantActualPasajero < $this->getCantidadMaxPasajeros() && !$pasajeroRepetido) {
+        if (!$pasajeroRepetido) {
             array_push($arregloPasajeros, $pasajero);
            $this->setColeObjPasajero($arregloPasajeros);
-           $cambiarPasajero = true;
-        }
+        } else{
+            $cambiarPasajero = false;
+        } 
         return $cambiarPasajero;
     }
 
