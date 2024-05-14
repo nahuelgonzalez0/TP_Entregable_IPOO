@@ -52,7 +52,9 @@ class Responsable {
     //metodos
 
     public function __toString(){
-        return "Numero de empleado: " .$this->getNumEmpleado() . "\nNumero de licencia: " .$this->getNumLicencia() .
-        "\nNombre: " .$this->getNombre() . "\nApellido: "  .$this->getApellido() . "\n";
+        return "Numero de empleado: ".$this->getNumEmpleado().
+        "\nNumero de licencia: " .$this->getNumLicencia().
+        "\nNombre: " .$this->getNombre(). 
+        "\nApellido: "  .$this->getApellido() . "\n";
     }
 }

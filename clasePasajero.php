@@ -4,12 +4,16 @@ class Pasajero {
     private $apellido;
     private $numDocumento;
     private $telefono;
+    private $numAsiento;
+    private $numTicket;
     //metodo constructor
-    public function __construct($nombre, $apellido, $numDocumento, $telefono){
+    public function __construct($nombre, $apellido, $numDocumento, $telefono, $numAsiento, $numTicket){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->numDocumento = $numDocumento;
         $this->telefono = $telefono;
+        $this->numAsiento = $numAsiento;
+        $this->numTicket = $numTicket;
     }
 
     //metodo de acceso
@@ -29,6 +33,14 @@ class Pasajero {
         return $this->telefono;
     }
 
+    public function getNumAsiento() {
+        return  $this->numAsiento;
+    }
+
+    public function getNumTicket() {
+        return $this->numTicket;
+    }
+
     //metodo de modificacion
     public function setNombre ($nombre){
         $this->nombre = $nombre;
@@ -46,10 +58,22 @@ class Pasajero {
         $this->telefono = $telefono;
     }
 
+    public function setNumAsiento($numAsiento) {
+        $this->numAsiento = $numAsiento;
+    }
+
+    public function setNumTicket($numTicket) {
+        $this->numTicket = $numTicket;
+    }
+
     //metodos
 
     public function __toString(){
-        return "Nombre: " . $this->getNombre() . "\nApellido: " . $this->getApellido() . 
-        "\nNumero de documento: " . $this->getNumDocumento() . "\nTelefono: " . $this->getTelefono() . "\n";
+        return "Nombre: ".$this->getNombre(). 
+        "\nApellido: " . $this->getApellido(). 
+        "\nNumero de documento: ".$this->getNumDocumento().
+        "\nTelefono: " . $this->getTelefono().
+        "\nNumero de asiento: " . $this->getNumAsiento().
+        "\nNumero de ticket : " . $this->getNumTicket();
     }
 }

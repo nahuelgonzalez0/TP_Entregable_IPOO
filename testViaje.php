@@ -17,8 +17,12 @@ $salir = true;
 
 do {
     echo "\n1. Agregar pasajero\n";
+    //agregar pasajero vip
+    //agregar pasajero especial
     echo "2. Ver viaje\n";
     echo "3. Cambiar pasajero\n";
+    //Cambiar pasajero vip
+    //Cambiar pasajero especial
     echo "4. ingresar Responsable del viaje\n";
     echo "5. Cambiar Responsable del viaje\n";
     echo "6. Salir\n";
