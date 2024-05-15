@@ -155,6 +155,7 @@ class Viaje {
             if ($pasajeroNoRepetido) {
                 $porcentajeIncremento = $objPasajero->darPorcentajeIncremento();
                 $costoAbonado = $precioPasaje * (1 + $porcentajeIncremento);
+                $this->setCostosAbonados($costoAbonado);
             }
         }
         return $costoAbonado;
