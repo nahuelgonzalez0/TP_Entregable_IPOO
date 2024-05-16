@@ -19,10 +19,10 @@ class PasajeroVip extends Pasajero {
     }
     //metodos
     public function darPorcentajeIncremento(){
-        $incremento = 35;
+        $incremento = 0.35;
         $cantMillas = $this->getCantMillasPasajero();
         if ($cantMillas > 300) {
-            $incremento = 30;
+            $incremento = 0.30;
         }
         return $incremento;
     }
@@ -31,6 +31,6 @@ class PasajeroVip extends Pasajero {
         $parent = parent::__toString();
         return "Numero de viajero frecuente: ".$this->getNumViajeroFrecuente().
         "\nCantidad de millas q hizo el pasajero: ".$this->getCantMillasPasajero().
-        $parent;
+        "\n" .$parent;
     }
 }

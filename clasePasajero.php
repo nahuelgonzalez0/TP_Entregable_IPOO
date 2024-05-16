@@ -68,6 +68,11 @@ class Pasajero {
 
     //metodos
 
+    public function darPorcentajeIncremento(){
+        $incremento = 0.10;
+        return $incremento;
+    }
+
     public function __toString(){
         return "Nombre: ".$this->getNombre(). 
         "\nApellido: " . $this->getApellido(). 

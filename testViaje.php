@@ -55,7 +55,7 @@ switch ($opcion) {
                 echo "Ingrese el numero de ticket del pasajero: ";
                 $numTicket = datosPasajero();
                 $objColeccionPasajero = new Pasajero ($nombre,$apellido,$numeroDocumento,$telefono,$numAsiento,$numTicket);
-                $resultadoCambiarPasajero = $viaje->agregarPasajero($objColeccionPasajero);
+                $resultadoCambiarPasajero = $viaje->venderPasaje($objColeccionPasajero);
                 if ($resultadoCambiarPasajero) {
                     echo "El usuario ha sigo cargado";
                 } else{
@@ -77,10 +77,6 @@ switch ($opcion) {
                 $numeroDocumento = datosPasajero();
                 echo "Ingrese el numero telefonico del pasajero vip: ";
                 $telefono = datosPasajero();
-                echo "Ingrese el numero de viajero frecuente del pasajero vip: ";
-                $numViajeroFrecuente = datosPasajero();
-                echo "Ingrese el numero telefonico del pasajero vip: ";
-                $telefono = datosPasajero();
                 echo "Ingrese el numero de asiento del pasajero vip: ";
                 $numAsiento = datosPasajero();
                 echo "Ingrese el numero de ticket del pasajero vip: ";
@@ -90,7 +86,7 @@ switch ($opcion) {
                 echo "Ingrese la cantidad de millas que ha echo pasajero vip: ";
                 $cantMillasPasajero = datosPasajero();
                 $objColeccionPasajero = new PasajeroVip ($nombre,$apellido,$numeroDocumento,$telefono,$numAsiento,$numTicket,$numViajeroFrecuente,$cantMillasPasajero);
-                $resultadoCambiarPasajero = $viaje->agregarPasajero($objColeccionPasajero);
+                $resultadoCambiarPasajero = $viaje->venderPasaje($objColeccionPasajero);
                 if ($resultadoCambiarPasajero) {
                     echo "El usuario ha sigo cargado";
                 } else{
@@ -123,7 +119,7 @@ switch ($opcion) {
                 echo "el pasajero especial tiene alguna restriccion alimentaria? Responder con si o no: ";
                 $restriccionAlimentaria = pedidosPasajeroEspecial();
                 $objColeccionPasajero = new PasajeroEspecial ($nombre,$apellido,$numeroDocumento,$telefono,$numAsiento,$numTicket,$servicioEspecial,$asistencia,$restriccionAlimentaria);
-                $resultadoCambiarPasajero = $viaje->agregarPasajero($objColeccionPasajero);
+                $resultadoCambiarPasajero = $viaje->venderPasaje($objColeccionPasajero);
                 if ($resultadoCambiarPasajero) {
                     echo "El usuario ha sigo cargado";
                 } else{
@@ -164,12 +160,12 @@ switch ($opcion) {
         if ($objColeccionPasajero = []) {
            echo "Todavia no hay ningun pasajero cargado.\n";
         } else {
+            echo "Ingrese el documento del pasajero vip que quiere modificar: ";
+            $numeroDocumento = datosPasajero();
             echo "Ingrese el nombre del pasajero vip: ";
             $nombre = datosPasajero();
             echo "Ingrese el apellido del pasajero vip: ";
             $apellido = datosPasajero();
-            echo "Ingrese el numero de documento del pasajero vip: ";
-            $numeroDocumento = datosPasajero();
             echo "Ingrese el numero telefonico del pasajero vip: ";
             $telefono = datosPasajero();
             echo "Ingrese el numero de asiento del pasajero vip: ";
@@ -194,12 +190,12 @@ switch ($opcion) {
         if ($objColeccionPasajero = []) {
            echo "Todavia no hay ningun pasajero cargado.\n";
         } else {
+            echo "Ingrese el documento del pasajero especial que quiere modificar: ";
+            $numeroDocumento = datosPasajero();
             echo "Ingrese el nombre del pasajero especial: ";
             $nombre = datosPasajero();
             echo "Ingrese el apellido del pasajero especial: ";
             $apellido = datosPasajero();
-            echo "Ingrese el numero de documento del pasajero especial: ";
-            $numeroDocumento = datosPasajero();
             echo "Ingrese el numero telefonico del pasajero especial: ";
             $telefono = datosPasajero();
             echo "Ingrese el numero de asiento del pasajero especial: ";

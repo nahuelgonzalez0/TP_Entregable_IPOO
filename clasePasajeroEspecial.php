@@ -28,13 +28,13 @@ class PasajeroEspecial extends Pasajero {
     //metodos
 
     public function darPorcentajeIncremento(){
-        $incremento = 10;
+        $incremento = 0.10;
         $servicioEspecial = $this->getServicioEspecial();
         $asistencia = $this->getAsistencia();
         $comidaEspecial = $this->getRestriccionesAlimentarias();
 
         if ($servicioEspecial && $asistencia && $comidaEspecial) {
-            $incremento = 30;
+            $incremento = 0.30;
         }
         return $incremento;
     }
